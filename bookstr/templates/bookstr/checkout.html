@@ -1,0 +1,30 @@
+{% extends 'bookstr/base.html' %}
+{%block body%}
+
+
+
+
+<form action="{% url 'bookstr:checkout'%}" method="post" id="noc" name="noc">
+  {% csrf_token %}
+  <p><font face="Courier" >Credit Cards You Can Choose From :
+
+  <select id="noc" name ="noc">
+    {% for c in cards %}
+
+
+
+    noc:<option value = {{c.CC_No}}>{{c.CC_No}}</option>
+
+    {%endfor%}
+
+  </select>
+  </p>
+  <input type="submit" value="Choose Card" class="btn btn-info btn-lg">
+</form>
+
+<h3> Or Add A New Card Here</h3>
+<div style="margin-left:45px;">
+  <p><a href="{% url 'bookstr:cardadder'%}"> <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-play"></span> Add Card</button> </a></p>
+</div>
+
+{%endblock%}

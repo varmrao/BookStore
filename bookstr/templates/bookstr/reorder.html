@@ -1,0 +1,36 @@
+{% extends 'bookstr/base.html' %}
+{%block body%}
+
+
+<form action="{% url 'bookstr:reorder'%}" method="post" id="bb" name="bb">
+  {% csrf_token %}
+  <p><font face="Courier">Books ISBNs:
+
+  <select id="bk" name ="bk">
+    {% for b in books %}
+
+
+
+    bk:<option value = {{b.ISBN}}>{{b.ISBN}}</option>
+
+    {%endfor%}
+
+  </select>
+
+
+  <select id="nc" name ="nc">
+    {% for c in ran %}
+
+
+
+    nc:<option value = {{c}}>{{c}}</option>
+
+    {%endfor%}
+
+  </select>
+  </p>
+  <input type="submit" value="Reorder" class="btn btn-info btn-lg">
+</form>
+
+
+{%endblock%}

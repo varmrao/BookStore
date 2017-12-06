@@ -1,0 +1,30 @@
+{% extends 'bookstr/base.html' %}
+{%block body%}
+
+<form action="{% url 'bookstr:cardadder'%}" method="post" id="noc" name="noc">
+  {% csrf_token %}
+
+  <h2> Credit Card Information </h2>
+
+  CreditCard Number:<br>
+  <input type="text" name="cc_no">
+  <br>
+  Name on Card:<br>
+  <input type="text" name="ncc">
+  <br>
+
+  Expiry Date:<br>
+  <input type="date" name="exp_date">
+  <br>
+
+  CVV:<br>
+  <input type="password" name="cvv">
+  <br>
+
+
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+
+{%endblock%}

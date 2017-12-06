@@ -1,0 +1,44 @@
+
+{% extends 'bookstr/base.html' %}
+
+
+
+{%block body%}
+
+<div style="margin-left:45px;">
+
+<h3><font face="Monospace">Add to Cart ? </font></h3>
+
+<img src="{{ book.bookcover}}" style="width:275px;height:345px;">
+
+<p><font face="Cursive" >Title : {{book.title}}</font></p>
+<p><font face="Courier" >Author(s) :
+{% for auth in author %}
+
+  {{auth}}
+  {% if forloop.counter < author|length %}
+    ,
+  {% endif %}
+{%endfor%}
+
+
+
+
+  <form action="{% url 'bookstr:cartaddedbook' book.id %}" method="post" id="noc" name="noc">
+    {% csrf_token %}
+    <p><font face="Courier" >Number of copies :
+
+    <select id="noc" name ="noc">
+      noc:<option value ="1">1</option>
+          <option value ="2">2</option>
+          <option value ="3">3</option>
+          <option value ="4">4</option>
+          <option value ="5">5</option>
+    </select>
+    </p>
+    <input type="submit" value="Add To Cart" class="btn btn-info btn-lg">
+  </form>
+
+</div>
+
+{%endblock%}

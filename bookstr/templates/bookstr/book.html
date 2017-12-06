@@ -1,0 +1,39 @@
+{% extends 'bookstr/base.html' %}
+{%block body%}
+<div style="margin-left:20px;">
+
+
+<img src="{{ book.bookcover}}" style="width:275px;height:345px;">
+
+
+<p><font face="Cursive" >Title : {{book.title}}</font></p>
+<p><font face="Courier" >ISBN : {{book.ISBN}}</font></p>
+<p><font face="Courier" >Author(s) :
+{% for auth in author %}
+
+  {{auth}}
+  {% if forloop.counter < author|length %}
+    ,
+  {% endif %}
+{%endfor%}
+</font></p>
+<p><font face="Swiss" >Genre(s) :
+{% for g in ge %}
+
+  {{g}}
+  {% if forloop.counter < ge|length %}
+    ,
+  {% endif %}
+{%endfor%}
+</font></p>
+
+<p><font face="Comic Sans MS" >Publisher : {{book.publisher}}</font></p>
+<p><font face="Courier" >Price of the book is : ${{book.price}} </font></p>
+
+<div style="margin-left:45px;">
+  <p><a href="{% url 'bookstr:cartadded' book.id %}"> <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-play"></span> Buy</button> </a></p>
+</div>
+</div>
+
+
+{%endblock%}

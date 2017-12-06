@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2> Some Other Data That's Needed.. Almost Done </h2>
+<form action="{% url 'bookstr:custsignup'%}" method="post" id="noc" name="noc">
+  {% csrf_token %}
+
+  First name:<br>
+  <input type="text" name="first_name">
+  <br>
+  Last name:<br>
+  <input type="text" name="last_name">
+  <br>
+
+  HouseNumber:<br>
+  <input type="text" name="house_no">
+  <br>
+  Street Number:<br>
+  <input type="text" name="street_no">
+  <br>
+  City:<br>
+  <input type="text" name="city">
+  <br>
+  State:<br>
+  <input type="text" name="state">
+  <br>
+  Country:<br>
+  <input type="text" name="ctry">
+  <br>
+  Phone Number:<br>
+  <input type="text" name="ph_no">
+  <br>
+
+  <h2> Credit Card Information </h2>
+
+  CreditCard Number:<br>
+  <input type="text" name="cc_no">
+  <br>
+  Name on Card:<br>
+  <input type="text" name="ncc">
+  <br>
+
+  Expiry Date:<br>
+  <input type="date" name="exp_date">
+  <br>
+
+  CVV:<br>
+  <input type="password" name="cvv">
+  <br>
+
+
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+
+</body>
+</html>

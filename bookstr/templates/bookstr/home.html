@@ -1,0 +1,19 @@
+{% extends 'bookstr/base.html' %}
+{%block body%}
+
+
+<h1><font face="Fantasy">Our Top Selling Books </font></h1>
+
+{% for book in all_books %}
+
+            <a href="{% url 'bookstr:book_details' book.id %}">
+              <img src="{{ book.bookcover}}" style="width:225px;height:285px;">
+            </a>
+
+
+
+
+
+{%endfor%}
+
+{%endblock%}

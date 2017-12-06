@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2> Incorrect Login Details, try again.. </h2>
+<form action="{% url 'bookstr:ownersignin'%}" method="post" id="noc" name="noc">
+  {% csrf_token %}
+
+  Username:<br>
+  <input type="text" name="username">
+  <br>
+  Password:<br>
+  <input type="password" name="password">
+  <br>
+
+  StoreID:<br>
+  <input type="password" name="storeid">
+  <br>
+
+  <br>
+
+  <input type="submit" value="Login">
+
+</form>
+
+
+</body>
+</html>

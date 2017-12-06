@@ -1,0 +1,42 @@
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+
+</style>
+{% extends 'bookstr/base.html' %}
+
+{%block body%}
+<h1><font face="Monospace">Books Currently in Your Cart </font></h1>
+<!-- <h2>TITLE  NUMBER_OF_COPIES  PRICE</h2> -->
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Number of Copies</th>
+    <th>Price</th>
+  </tr>
+{%for x in data %}
+    <!-- <h3><p>{{x.title}}  {{x.numberofcopies}}  {{x.priceofentry}}</p></h3> -->
+    <tr>
+      <td>{{x.title}}</td>
+      <td>{{x.numberofcopies}}</td>
+      <td>{{x.priceofentry}}</td>
+    </tr>
+{%endfor%}
+</table>
+
+<h3><font face="Monospace">Total price of the items in your cart : {{total}} </font></h13\\>
+
+  <div style="margin-left:45px;">
+    <p><a href="{% url 'bookstr:checkout'%}"> <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-play"></span> Checkout</button> </a></p>
+  </div>
+{%endblock%}
